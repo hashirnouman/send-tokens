@@ -1,0 +1,15 @@
+.hero {
+  background-image: url("../../../images/hero-image.jpg");
+  background-repeat: no-repeat;
+  background-size: auto;
+  width: 100vw;
+  min-height: 800px;
+}
+.input {
+  width: 500px;
+  height: 30px;
+  border-radius: 9px;
+}
+.input:focus {
+  border: none;
+}
