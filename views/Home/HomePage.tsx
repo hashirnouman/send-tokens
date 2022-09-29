@@ -95,24 +95,33 @@ const HomePage = (props: Props) => {
           </Grid>
         </Container>
       </div>
-      <div style={{ backgroundColor: "white" }}>
+      <div
+        style={{
+          backgroundColor: "white",
+          display: "flex",
+          justifyContent: "space-around",
+          padding: "30px",
+        }}
+      >
         <TextSquare>
-          <h1>
-            Why choose UX studio as your <br />
-            app design partner?
-          </h1>
-          <Paragraph>
-            Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat{" "}
-            cupidatat non proident, sunt in culpa qui officia deserunt.
-          </Paragraph>
-          <Button>Learn More</Button>
+          <div>
+            <h1>
+              Why choose UX studio as your <br />
+              app design partner?
+            </h1>
+            <Paragraph>
+              Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat{" "}
+              cupidatat non proident, sunt in culpa qui officia deserunt.
+            </Paragraph>
+            <Button>Learn More</Button>
+          </div>
         </TextSquare>
         <div className={styles.img}>
           <Image src={person1} alt="person" width={550} height={550} />
         </div>
-        
       </div>
+      <div>hello</div>
     </div>
   );
 };
