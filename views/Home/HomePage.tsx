@@ -4,7 +4,17 @@ import Navbar from "./components/Navbar";
 import styles from "./styles/HomePage.module.css";
 import { ethers } from "ethers";
 import { Input } from "../../components/Input/Input";
-import { Center } from "../../components/Center/Center";
+import { Form } from "../../components/Warppers/Form";
+import { MSP } from "../../components/MSP/MSP";
+import { Title } from "../../components/Title/Title";
+import { Services } from "../../components/Services/Services";
+import person1 from "../../images/vvv.jpg";
+import ServicesCard from "./components/ServicesCard";
+import { Container } from "../../components/Warppers/Container";
+import { Grid } from "../../components/Warppers/Grid";
+import { TextSquare } from "../../components/Square/TextSquare";
+import Image from "next/image";
+import { Paragraph } from "../../components/Text/Paragraph";
 type Props = {};
 const infura = "https://goerli.infura.io/v3/7ccf265d416a40349797f20ec7792520";
 const provider = new ethers.providers.JsonRpcProvider(infura);
@@ -15,6 +25,7 @@ const HomePage = (props: Props) => {
   const [account, setAccount] = useState(null);
   const [address, setAddress] = useState("");
   const [ammount, setAmmount] = useState("");
+  const [connected, setConnected] = useState(false);
   async function connectWallet() {
     window.ethereum
       .request({
@@ -22,6 +33,7 @@ const HomePage = (props: Props) => {
       })
       .then((accounts: React.SetStateAction<null>[]) => {
         setAccount(accounts[0]);
+        setConnected(true);
       })
       .catch((error: any) => {
         alert("Something went wrong");
@@ -41,13 +53,14 @@ const HomePage = (props: Props) => {
     <div>
       <Navbar />
       <div className={styles.hero}>
-        <Center>
+        <Form>
           <Input
             type="text"
             value={address}
             onChange={(e) => {
               setAddress(e.target.value);
             }}
+            required
           />
           <Input
             type="text"
@@ -55,10 +68,50 @@ const HomePage = (props: Props) => {
             onChange={(e) => {
               setAmmount(e.target.value);
             }}
+            required
           />
+          {connected && <Button onClick={sendToken}> Send ether</Button>}
           <Button onClick={connectWallet}>Connect wallet</Button>
-          <Button onClick={sendToken}> Send ether</Button>
-        </Center>
+        </Form>
+        <MSP>
+          Mobile App
+          <br />
+          Development
+        </MSP>
+      </div>
+      <div style={{ padding: "50px" }}>
+        <Title>We create super-awesome designs</Title>
+        <p>
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+          dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident
+        </p>
+        <Container>
+          <Grid>
+            <ServicesCard text="Amazing Design" />
+            <ServicesCard text="Amazing Design" />
+            <ServicesCard text="Amazing Design" />
+            <ServicesCard text="Amazing Design" />
+          </Grid>
+        </Container>
+      </div>
+      <div style={{ backgroundColor: "white" }}>
+        <TextSquare>
+          <h1>
+            Why choose UX studio as your <br />
+            app design partner?
+          </h1>
+          <Paragraph>
+            Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat{" "}
+            cupidatat non proident, sunt in culpa qui officia deserunt.
+          </Paragraph>
+          <Button>Learn More</Button>
+        </TextSquare>
+        <div className={styles.img}>
+          <Image src={person1} alt="person" width={550} height={550} />
+        </div>
+        
       </div>
     </div>
   );

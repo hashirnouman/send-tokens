@@ -1,6 +1,8 @@
 .hero {
-  background-image: url("../../../images/hero-image.jpg");
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
+    url("../../../images/hero-image.jpg");
   background-repeat: no-repeat;
+  background-position: center;
   background-size: auto;
   width: 100vw;
   min-height: 800px;
@@ -12,4 +14,21 @@
 }
 .input:focus {
   border: none;
+}
+.circle {
+  height: 65px;
+  width: 65px;
+  background-color: #1747b8;
+  border-radius: 50%;
+  display: inline-block;
+  padding: 20px;
+}
+.img {
+  z-index: 1000;
+  width: 900px;
+  height: 609px;
+ position: absolute;
+ left: 50%;
+ top:1550px;
+  
 }
