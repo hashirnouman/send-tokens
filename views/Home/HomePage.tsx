@@ -15,6 +15,7 @@ import { Grid } from "../../components/Warppers/Grid";
 import { TextSquare } from "../../components/Square/TextSquare";
 import Image from "next/image";
 import { Paragraph } from "../../components/Text/Paragraph";
+import AboutSection from "./components/AboutSection";
 type Props = {};
 const infura = "https://goerli.infura.io/v3/7ccf265d416a40349797f20ec7792520";
 const provider = new ethers.providers.JsonRpcProvider(infura);
@@ -36,7 +37,7 @@ const HomePage = (props: Props) => {
         setConnected(true);
       })
       .catch((error: any) => {
-        alert("Something went wrong");
+        alert("Something went wrong maybe extension is not installed");
       });
   }
   const sendToken = async () => {
@@ -50,7 +51,7 @@ const HomePage = (props: Props) => {
     }
   };
   return (
-    <div>
+    <div style={{ overflow: "hidden" }}>
       <Navbar />
       <div className={styles.hero}>
         <Form>
@@ -121,7 +122,7 @@ const HomePage = (props: Props) => {
           <Image src={person1} alt="person" width={550} height={550} />
         </div>
       </div>
-      <div>hello</div>
+      <AboutSection />
     </div>
   );
 };
