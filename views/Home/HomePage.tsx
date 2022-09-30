@@ -16,6 +16,8 @@ import { TextSquare } from "../../components/Square/TextSquare";
 import Image from "next/image";
 import { Paragraph } from "../../components/Text/Paragraph";
 import AboutSection from "./components/AboutSection";
+import Contactus from "./components/Contactus";
+import QuoteCard from "../../components/quotecard/QuoteCard";
 type Props = {};
 const infura = "https://goerli.infura.io/v3/7ccf265d416a40349797f20ec7792520";
 const provider = new ethers.providers.JsonRpcProvider(infura);
@@ -123,6 +125,17 @@ const HomePage = (props: Props) => {
         </div>
       </div>
       <AboutSection />
+      <Contactus />
+      <Title>How we help people</Title>
+      <p style={{ textAlign: "center", fontSize: "30px" }}>
+        With serious savings, a seamless online application, and unique <br />
+        community benefits, our members have a lot to say about our loans!
+      </p>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <QuoteCard />
+        <QuoteCard />
+        <QuoteCard />
+      </div>
     </div>
   );
 };
